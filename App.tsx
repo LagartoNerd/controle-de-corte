@@ -17,7 +17,6 @@ export default function App() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Inicializa AdMob uma vez na abertura
   useEffect(() => {
     initAdMob();
   }, []);
@@ -48,11 +47,10 @@ export default function App() {
           }
         }
 
-        unsubProfile = onSnapshot(userRef, docSnap => {
+        unsubProfile = onSnapshot(userRef, async docSnap => {
           if (docSnap.exists()) {
             const data = docSnap.data() as UserProfile;
 
-            // Verifica expiração do trial
             if (data.trialStartDate && data.trialPlan) {
               const diffDays = Math.ceil(
                 Math.abs(new Date().getTime() - new Date(data.trialStartDate).getTime()) /
@@ -102,17 +100,12 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.white} />
-
-      {/* Interstitial Ad — exibido após login */}
       {user && <AppOpenAd profile={profile} />}
-
-      {/* linking config ativa deep links: controlecorte://payment/success */}
       <SafeAreaProvider>
         <NavigationContainer linking={linking}>
           <AppNavigator user={user} profile={profile} />
         </NavigationContainer>
       </SafeAreaProvider>
-
       <Toast />
     </GestureHandlerRootView>
   );
