@@ -10,10 +10,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://dl.bintray.com/umsdk/release" }
+        maven { url("$rootDir/../node_modules/react-native/android") }
+        maven { url("$rootDir/../node_modules/@react-native/gradle-plugin") }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.3.2")
-        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("com.facebook.react:react-native-gradle-plugin:0.75.4")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("com.google.gms:google-services:4.4.0")
     }
