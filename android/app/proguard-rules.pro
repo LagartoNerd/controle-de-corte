@@ -1,0 +1,7 @@
+-keep class com.facebook.react.** { *; }
+-keep class com.facebook.hermes.** { *; }
+-keep class com.swmansion.** { *; }
+-keep class com.th3rdwave.** { *; }
+-keep class com.google.** { *; }
+-keep class io.invertase.** { *; }
+-dontwarn com.facebook.react.**

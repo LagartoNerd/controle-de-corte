@@ -1,0 +1,1 @@
+export {AdminConfigScreen} from './PricingScreen';

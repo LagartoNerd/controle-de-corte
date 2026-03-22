@@ -1,0 +1,41 @@
+# React Native
+node_modules/
+.gradle/
+local.properties
+*.keystore
+!debug.keystore
+.bundle/
+android/app/build/
+android/.gradle/
+android/app/.cxx/
+ios/Pods/
+ios/build/
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+
+# Env
+.env
+.env.local
+.env.production
+
+# Metro
+.metro-health-check*
+
+# Debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Build outputs
+dist/
+build/
+lib/
+functions/lib/

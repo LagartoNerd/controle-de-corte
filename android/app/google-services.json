@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811737645595",
+    "project_id": "ai-studio-applet-webapp-91ce3",
+    "storage_bucket": "ai-studio-applet-webapp-91ce3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811737645595:android:1b05a22d579ebe583baebe",
+        "android_client_info": {
+          "package_name": "Footwear.Production"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811737645595-fpa5kks1r45j7i90a4rv4s2aq5um6rj3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP3IpU-06vqhQZvn3zuhUXTELDhTAjlII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811737645595-fpa5kks1r45j7i90a4rv4s2aq5um6rj3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
