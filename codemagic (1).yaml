@@ -13,6 +13,6 @@ workflows:
       - name: Fix gradlew permission
         script: chmod +x android/gradlew
       - name: Build APK
-        script: cd android && ./gradlew assembleDebug --no-daemon
+        script: cd android && bash gradlew assembleDebug --no-daemon
     artifacts:
       - android/app/build/outputs/apk/debug/app-debug.apk
