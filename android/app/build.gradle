@@ -18,7 +18,7 @@ android {
     namespace "com.controledecortemobile"
 
     defaultConfig {
-        applicationId "Footwear.Production"
+        applicationId "com.controledecortemobile"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.targetSdkVersion
         versionCode 1
