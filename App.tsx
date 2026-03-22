@@ -47,31 +47,40 @@ export default function App() {
           }
         }
 
-        unsubProfile = onSnapshot(userRef, async docSnap => {
-          if (docSnap.exists()) {
-            const data = docSnap.data() as UserProfile;
+        unsubProfile = onSnapshot(userRef, docSnap => {
+          const handleSnapshot = async () => {
+            if (docSnap.exists()) {
+              const data = docSnap.data() as UserProfile;
 
-            if (data.trialStartDate && data.trialPlan) {
-              const diffDays = Math.ceil(
-                Math.abs(new Date().getTime() - new Date(data.trialStartDate).getTime()) /
-                  (1000 * 60 * 60 * 24),
-              );
-              if (diffDays > 15) {
-                await updateDoc(userRef, {
-                  plan: data.trialPlan,
-                  trialStartDate: null,
-                  trialPlan: null,
-                  updatedAt: new Date().toISOString(),
-                });
-                Toast.show({
-                  type: 'success',
-                  text1: 'Assinatura ativada',
-                  text2: `Plano ${data.trialPlan} ativado automaticamente.`,
-                });
+              if (data.trialStartDate && data.trialPlan) {
+                const diffDays = Math.ceil(
+                  Math.abs(new Date().getTime() - new Date(data.trialStartDate).getTime()) /
+                    (1000 * 60 * 60 * 24),
+                );
+
+                if (diffDays > 15) {
+                  await updateDoc(userRef, {
+                    plan: data.trialPlan,
+                    trialStartDate: null,
+                    trialPlan: null,
+                    updatedAt: new Date().toISOString(),
+                  });
+
+                  Toast.show({
+                    type: 'success',
+                    text1: 'Assinatura ativada',
+                    text2: `Plano ${data.trialPlan} ativado automaticamente.`,
+                  });
+                }
               }
+
+              setProfile(data);
             }
-            setProfile(data);
-          }
+          };
+
+          handleSnapshot().catch(error => {
+            console.error('Erro ao processar perfil:', error);
+          });
         });
 
         setUser(fbUser);
@@ -80,6 +89,7 @@ export default function App() {
         setProfile(null);
         if (unsubProfile) unsubProfile();
       }
+
       setLoading(false);
     });
 
